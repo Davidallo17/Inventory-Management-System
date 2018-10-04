@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="504.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddEmployeeController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="3.0" layoutY="10.0" onMouseDragged="#windowDragged" onMousePressed="#windowPressed" prefHeight="362.0" prefWidth="487.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Pane layoutY="-5.0" prefHeight="62.0" prefWidth="497.0" style="-fx-background-color: #ACD1E9;">
+               <children>
+                  <Label layoutX="24.0" layoutY="16.0" text="Add Employee">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <JFXTextField fx:id="empUsername" labelFloat="true" layoutX="52.0" layoutY="95.0" prefHeight="25.0" prefWidth="374.0" promptText="Enter Username" style="-fx-background-color: #eee;" />
+            <JFXTextField fx:id="empFirstname" labelFloat="true" layoutX="52.0" layoutY="146.0" prefHeight="25.0" prefWidth="374.0" promptText="Enter First name" style="-fx-background-color: #eee;" />
+            <JFXTextField fx:id="empLastname" labelFloat="true" layoutX="52.0" layoutY="198.0" prefHeight="25.0" prefWidth="374.0" promptText="Enter Last name" style="-fx-background-color: #eee;" />
+            <JFXButton fx:id="uniwideSaveBtn" layoutX="52.0" layoutY="255.0" onAction="#saveUniwideClicked" prefHeight="43.0" prefWidth="134.0" style="-fx-background-color: #ACD1E9;" text="Save">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="UniwideCancel" layoutX="292.0" layoutY="255.0" onAction="#cancelBtnClicked" prefHeight="43.0" prefWidth="134.0" style="-fx-background-color: #ACD1E9;" text="Cancel">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</Pane>

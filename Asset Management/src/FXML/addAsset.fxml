@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="558.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddAssetController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="4.0" layoutY="5.0" onMouseDragged="#windowDragged" onMousePressed="#windowPressed" prefHeight="389.0" prefWidth="551.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Pane prefHeight="62.0" prefWidth="551.0" style="-fx-background-color: #ACD1E9;">
+               <children>
+                  <Label layoutX="24.0" layoutY="16.0" text="Add Asset">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <JFXComboBox fx:id="category" layoutX="16.0" layoutY="80.0" prefHeight="25.0" prefWidth="140.0" promptText="Category *" />
+            <JFXComboBox fx:id="username" layoutX="16.0" layoutY="134.0" prefHeight="25.0" prefWidth="140.0" promptText="Owner *" />
+            <JFXComboBox fx:id="brand" layoutX="16.0" layoutY="194.0" prefHeight="25.0" prefWidth="140.0" promptText="Brand *" />
+            <JFXTextField fx:id="model" layoutX="206.0" layoutY="80.0" prefHeight="25.0" prefWidth="140.0" promptText="Model" />
+            <JFXTextField fx:id="assetNum" layoutX="206.0" layoutY="134.0" prefHeight="25.0" prefWidth="140.0" promptText="Asset Number" />
+            <JFXTextField fx:id="serialNum" layoutX="206.0" layoutY="194.0" prefHeight="25.0" prefWidth="140.0" promptText="Serial Number" />
+            <JFXComboBox fx:id="status" layoutX="386.0" layoutY="80.0" prefHeight="25.0" prefWidth="139.0" promptText="Status *" />
+            <DatePicker fx:id="startDate" layoutX="385.0" layoutY="134.0" prefHeight="25.0" prefWidth="140.0" promptText="Warranty Start" />
+            <DatePicker fx:id="endDate" layoutX="385.0" layoutY="194.0" prefHeight="25.0" prefWidth="140.0" promptText="Warranty End" />
+            <JFXTextArea fx:id="comments" layoutX="33.0" layoutY="237.0" prefHeight="64.0" prefWidth="485.0" promptText="Comments" />
+            <JFXButton fx:id="saveBtn" layoutX="57.0" layoutY="329.0" onAction="#saveBtnClicked" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #240041;" text="Save" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="cancelBtn" layoutX="326.0" layoutY="329.0" onAction="#cancelBtnClicked" prefHeight="38.0" prefWidth="147.0" style="-fx-background-color: #240041;" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="386.0" layoutY="114.0" text="YYYY-MM-DD">
+               <font>
+                  <Font name="Lato Regular" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="386.0" layoutY="172.0" text="YYYY-MM-DD">
+               <font>
+                  <Font name="Lato Regular" size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</Pane>
