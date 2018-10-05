@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1323.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdministratorPageController">
+   <children>
+      <VBox prefHeight="91.0" prefWidth="1323.0" AnchorPane.bottomAnchor="631.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar style="-fx-background-color: #ECECEC;">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Manage Assets">
+                     <items>
+                        <MenuItem fx:id="emptyItem" mnemonicParsing="false" onAction="#emptyTableClicked" text="Empty Table">
+                           <graphic>
+                              <ImageView fitHeight="43.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8_Erase_48px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <MenuItem fx:id="exportBtnForDisposal" mnemonicParsing="false" onAction="#exportAssetDisposalClicked" text="Export Assets for Disposal">
+                           <graphic>
+                              <ImageView fitHeight="43.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8_Trash_50px_3.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <MenuItem fx:id="exportBtn" mnemonicParsing="false" onAction="#exportBtnClicked" text="Export All Assets">
+                           <graphic>
+                              <ImageView fitHeight="43.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8_Edit_File_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <MenuItem fx:id="importBtn" mnemonicParsing="false" onAction="#importBtnClicked" text="Import All Assets">
+                           <graphic>
+                              <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8_Import_CSV_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Manage Employees">
+                     <items>
+                        <MenuItem fx:id="ExportOrgBtn" mnemonicParsing="false" onAction="#exportOrgBtnClicked" text="Export Employee Table">
+                           <graphic>
+                              <ImageView fitHeight="43.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8_People_48px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <JFXButton fx:id="logoutButton" layoutX="1096.0" layoutY="14.0" onAction="#LogOutClicked" prefHeight="38.0" prefWidth="124.0" style="-fx-background-color: #E4001B;" text="Log out" textFill="WHITE" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="24.0">
+                           <image>
+                              <Image url="@../Images/close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="refreshButton" ellipsisString="" graphicTextGap="0.0" layoutX="275.0" layoutY="14.0" onAction="#refreshButtonClicked" prefHeight="38.0" prefWidth="164.0" style="-fx-background-color: #E4001B;" text="REFRESH" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/refresh.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" color="#5e1e1e" radius="17.4125" spread="0.27" width="50.65" />
+                     </effect>
+                  </JFXButton>
+                  <Label layoutX="95.0" layoutY="12.0" prefHeight="43.0" prefWidth="180.0" text="Administrator" textFill="#e4001b" AnchorPane.leftAnchor="95.0" AnchorPane.topAnchor="12.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="26.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="49.0" fitWidth="69.0" layoutX="22.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="9.0">
+                     <image>
+                        <Image url="@../Images/icons8_Manager_80px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <JFXTabPane layoutY="93.0" prefHeight="630.0" prefWidth="1323.0" stylesheets="@../CSS/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="92.0">
+         <tabs>
+            <Tab style="-fx-pref-height: 50; -fx-pref-width: 250;" text="ASSET MANAGEMENT">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane prefHeight="663.0" prefWidth="1317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Pane layoutX="123.0" prefHeight="64.0" prefWidth="1200.0" style="-fx-background-color: #80ADD7;" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="0.0">
+                                       <children>
+                                          <JFXButton fx:id="deleteAssetButton" layoutX="983.0" layoutY="18.0" onAction="#deleteAssetButtonClicked" prefHeight="39.0" prefWidth="156.0" ripplerFill="#905a5a" style="-fx-background-color: linear-gradient(to top, #606c88, #3f4c6b);" text="DELETE" textFill="WHITE">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8_Delete_16px.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton fx:id="addAssetButton" layoutX="522.0" layoutY="18.0" onAction="#addAssetButtonClicked" prefHeight="40.0" prefWidth="156.0" ripplerFill="#905a5a" style="-fx-background-color: linear-gradient(to top, #606c88, #3f4c6b);" text="ADD" textFill="WHITE">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView>
+                                                   <image>
+                                                      <Image url="@../Images/icons8_Add_Property_16px_1.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <effect>
+                                                <DropShadow spread="0.15" />
+                                             </effect>
+                                          </JFXButton>
+                                          <JFXButton fx:id="updateAssetButton" layoutX="753.0" layoutY="17.0" onAction="#updateAssetButtonClicked" prefHeight="40.0" prefWidth="156.0" style="-fx-background-color: linear-gradient(to top, #606c88, #3f4c6b);" text="UPDATE" textFill="WHITE">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView>
+                                                   <image>
+                                                      <Image url="@../Images/icons8_Edit_Property_16px_2.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                          <ImageView fx:id="Searchpic" fitHeight="30.0" fitWidth="29.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="searchpic">
+                                             <image>
+                                                <Image url="@../Images/icons8_Search_40px.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="searchAsset" layoutX="56.0" layoutY="19.0" prefHeight="36.0" prefWidth="246.0" style="-fx-border-color: black; -fx-background-color: white;" />
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="124.0" layoutY="64.0" opacity="0.9" prefHeight="128.0" prefWidth="1199.0" style="-fx-background-color: #80ADD7;" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="0.0">
+                                       <children>
+                                          <JFXTextField fx:id="commentBox" layoutX="754.0" layoutY="83.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                          <Label layoutX="292.0" layoutY="6.0" text="Category" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="522.0" layoutY="6.0" text="Brand" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="modelBox" layoutX="754.0" layoutY="23.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                          <Label layoutX="754.0" layoutY="6.0" text="Model" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="982.0" layoutY="6.0" text="Asset Tag" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="serialNumberBox" layoutX="56.0" layoutY="83.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                          <Label layoutX="54.0" layoutY="61.0" text="Serial Number" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="754.0" layoutY="61.0" text="Comments" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXComboBox fx:id="ownerBox" layoutX="56.0" layoutY="23.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                          <Label layoutX="56.0" layoutY="6.0" text="Owner" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="assetTagBox" layoutX="982.0" layoutY="23.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                          <JFXComboBox fx:id="categoryBox" layoutX="292.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                          <JFXComboBox fx:id="brandBox" layoutX="522.0" layoutY="23.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                          <JFXComboBox fx:id="statusAssetBox" layoutX="982.0" layoutY="83.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                          <Label layoutX="982.0" layoutY="61.0" text="Status" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="292.0" layoutY="61.0" text="Warranty Start Date (YYYY-MM-DD)" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="522.0" layoutY="61.0" text="Warranty End Date (YYYY-MM-DD)" textFill="#030202">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="startwarrantyBox" layoutX="292.0" layoutY="83.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                          <JFXTextField fx:id="endwarrantyBox" layoutX="522.0" layoutY="83.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #eee;" />
+                                       </children>
+                                    </Pane>
+                                    <TableView fx:id="tableviewAssets" layoutY="190.0" maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="492.0" prefWidth="1214.0" styleClass="dataTable" stylesheets="@../CSS/style.css" AnchorPane.bottomAnchor="-102.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="190.0">
+                                       <columns>
+                                          <TableColumn fx:id="show_ownerRow" editable="false" maxWidth="200.0" minWidth="120.0" prefWidth="120.0" text="Owner" />
+                                          <TableColumn fx:id="show_categoryRow" editable="false" maxWidth="240.0" minWidth="120.0" prefWidth="120.0" resizable="false" text="Category" />
+                                          <TableColumn fx:id="show_brandRow" editable="false" maxWidth="300.0" minWidth="120.0" prefWidth="120.0" text="Brand" />
+                                          <TableColumn fx:id="show_modelRow" editable="false" maxWidth="500.0" minWidth="180.0" prefWidth="180.0" sortable="false" text="Model" />
+                                          <TableColumn fx:id="show_assetTagRow" editable="false" maxWidth="300.0" minWidth="100.0" prefWidth="100.0" text="Asset Tag" />
+                                          <TableColumn fx:id="show_serialNumRow" editable="false" maxWidth="300.0" minWidth="150.0" prefWidth="150.0" text="Serial Number" />
+                                          <TableColumn fx:id="show_startwarrantyuniwide" editable="false" maxWidth="300.0" minWidth="150.0" prefWidth="150.0" text="Warranty Start Date" />
+                                          <TableColumn fx:id="show_endwarrantyuniwide" editable="false" maxWidth="300.0" minWidth="150.0" prefWidth="150.0" text="Warranty End Date" />
+                                          <TableColumn fx:id="show_statusRow" editable="false" maxWidth="300.0" minWidth="130.0" prefWidth="130.0" text="Status" />
+                                          <TableColumn fx:id="show_commentsRow" editable="false" maxWidth="500.0" minWidth="180.0" prefWidth="180.0" text="Comments" />
+                                       </columns>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <JFXListView fx:id="univOrg" opacity="0.76" prefHeight="191.0" prefWidth="124.0" style="-fx-background-color: #ACD1E9; -fx-border-width: 0px, 0px, 0px, 1px;" />
+                                 </children>
+                              </AnchorPane>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab style="-fx-pref-width: 250; -fx-pref-height: 50;" text="USER MANAGEMENT">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="90.0" prefWidth="1323.0" style="-fx-background-color: #80ADD7;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <JFXTextField fx:id="searchAssetUser" layoutX="1048.0" layoutY="24.0" prefHeight="43.0" prefWidth="246.0" style="-fx-border-color: black; -fx-background-color: white;" />
+                              <ImageView fx:id="Searchpic1" fitHeight="31.0" fitWidth="34.0" layoutX="1260.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" styleClass="searchpic">
+                                 <image>
+                                    <Image url="@../Images/icons8_Search_40px.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="addAdminButton" layoutX="22.0" layoutY="25.0" onAction="#addAdminButtonClicked" prefHeight="43.0" prefWidth="190.0" ripplerFill="#905a5a" style="-fx-background-color: #B80F0A;" styleClass="button-search" text="Add Admin" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../Images/icons8_Change_User_16px_1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="updateEmployeeButton" layoutX="538.0" layoutY="25.0" onAction="#updateEmployeeButtonClicked" prefHeight="43.0" prefWidth="190.0" ripplerFill="#905a5a" style="-fx-background-color: linear-gradient(from 100% 100% to 25% 25%, #606c88, #3f4c6b);;" styleClass="button-search" text="Update Employee" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../Images/icons8_Change_User_16px_1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="addEmployeeButton" layoutX="274.0" layoutY="25.0" onAction="#addEmployeeButtonClicked" prefHeight="43.0" prefWidth="190.0" ripplerFill="#905a5a" style="-fx-background-color: linear-gradient(from 25% 100% to 100% 100%,  #3f4c6b,#606c88);;" text="Add Employee" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/icons8_Add_User_Male_16px_4.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="deleteOrgUniwide" layoutX="789.0" layoutY="25.0" onAction="#deleteEmployeeButtonClicked" prefHeight="43.0" prefWidth="190.0" ripplerFill="#905a5a" style="-fx-background-color: linear-gradient(from 100% 100% to 25% 25%, #606c88, #3f4c6b);;" text="Delete Employee" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/icons8_Delete_16px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                        <Pane layoutY="90.0" prefHeight="115.0" prefWidth="1323.0" style="-fx-background-color: #80ADD7;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
+                           <children>
+                              <Label layoutX="33.0" layoutY="23.0" text="Username:  ">
+                                 <font>
+                                    <Font name="Calibri Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="firstnameTextfield" layoutX="480.0" layoutY="25.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #ECECEC;" />
+                              <JFXTextField fx:id="lastnameTextfield" layoutX="480.0" layoutY="70.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #ECECEC;" />
+                              <JFXComboBox fx:id="roleBox" layoutX="144.0" layoutY="70.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #ECECEC;" styleClass="choice-box" stylesheets="@../CSS/style.css" />
+                              <GridPane layoutX="7.0">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <JFXPasswordField fx:id="passwordTextfield" layoutX="799.0" layoutY="25.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #ECECEC;" />
+                              <JFXComboBox fx:id="statusBox" layoutX="799.0" layoutY="70.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #ECECEC;" />
+                              <JFXTextField fx:id="usernameTextfield" layoutX="144.0" layoutY="24.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #ECECEC;" />
+                              <Label layoutX="85.0" layoutY="70.0" text="Role:">
+                                 <font>
+                                    <Font name="Calibri Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="367.0" layoutY="70.0" text="Last name:">
+                                 <font>
+                                    <Font name="Calibri Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="366.0" layoutY="23.0" text="First name:">
+                                 <font>
+                                    <Font name="Calibri Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="720.0" layoutY="70.0" text="Status:">
+                                 <font>
+                                    <Font name="Calibri Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="690.0" layoutY="25.0" text="Password:">
+                                 <font>
+                                    <Font name="Calibri Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <TableView fx:id="tableviewUsers" layoutY="205.0" prefHeight="375.0" prefWidth="1317.0" stylesheets="@../CSS/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="205.0">
+                           <columns>
+                              <TableColumn fx:id="usernameTable" maxWidth="500.0" minWidth="250.0" prefWidth="250.0" style="-fx-cell-size: 40px;" text="Username" />
+                              <TableColumn fx:id="firstnameTable" maxWidth="600.0" minWidth="250.0" prefWidth="250.0" resizable="false" text="Firstname" />
+                              <TableColumn fx:id="lastnameTable" maxWidth="600.0" minWidth="250.0" prefWidth="250.0" text="Lastname" />
+                              <TableColumn fx:id="roleTable" maxWidth="600.0" minWidth="250.0" prefWidth="250.0" text="Role" />
+                              <TableColumn fx:id="statusTable" maxWidth="600.0" minWidth="250.0" prefWidth="250.0" text="Status" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab style="-fx-pref-height: 50; -fx-pref-width: 250;" text="SETTINGS">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="579.0" prefWidth="1323.0" style="-fx-background-color: #80ADD7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="60.0" layoutY="14.0" text="Add Items " textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="60.0" layoutY="61.0" prefHeight="486.0" prefWidth="359.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #AAFFA9, #11FFBD);">
+                                 <children>
+                                    <JFXListView fx:id="CategoryListView" layoutX="32.0" layoutY="107.0" prefHeight="312.0" prefWidth="293.0" />
+                                    <JFXButton fx:id="addCategory" layoutX="223.0" layoutY="59.0" onAction="#addCategoryClicked" prefHeight="38.0" prefWidth="100.0" ripplerFill="#905a5a" style="-fx-background-color: linear-gradient(to top, #606c88, #3f4c6b);" text="ADD" textFill="WHITE">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fx:id="addBrand1">
+                                             <image>
+                                                <Image url="@../Images/icons8_Add_Property_16px_1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXTextField fx:id="addCategoryTextfield" layoutX="32.0" layoutY="58.0" prefHeight="37.0" prefWidth="172.0" style="-fx-background-color: #eee;">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <Label layoutX="32.0" layoutY="25.0" text="Category">
+                                       <font>
+                                          <Font name="Calibri Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton fx:id="deleteCategory" layoutX="216.0" layoutY="434.0" onAction="#deleteCategoryClicked" prefHeight="38.0" prefWidth="107.0" ripplerFill="#905a5a" style="-fx-background-color: linear-gradient(to top, #606c88, #3f4c6b);" text="DELETE" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8_Delete_16px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                                 <effect>
+                                    <DropShadow spread="0.4" />
+                                 </effect>
+                              </Pane>
+                              <Pane layoutX="469.0" layoutY="60.0" prefHeight="488.0" prefWidth="361.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #AAFFA9, #11FFBD);">
+                                 <children>
+                                    <Label layoutX="34.0" layoutY="30.0" text="Brand">
+                                       <font>
+                                          <Font name="Calibri Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXListView fx:id="BrandListView" layoutX="34.0" layoutY="108.0" prefHeight="309.0" prefWidth="294.0" />
+                                    <JFXButton fx:id="deleteBrand" layoutX="221.0" layoutY="436.0" onAction="#deleteBrandClicked" prefHeight="38.0" prefWidth="107.0" ripplerFill="#905a5a" style="-fx-background-color: linear-gradient(to top, #606c88, #3f4c6b);" text="DELETE" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8_Delete_16px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="addBrand" layoutX="225.0" layoutY="59.0" onAction="#addBrandClicked" prefHeight="38.0" prefWidth="100.0" ripplerFill="#905a5a" style="-fx-background-color: linear-gradient(to top, #606c88, #3f4c6b);" text="ADD" textFill="WHITE">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fx:id="addBrand11">
+                                             <image>
+                                                <Image url="@../Images/icons8_Add_Property_16px_1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXTextField fx:id="addBrandTextfield" layoutX="34.0" layoutY="59.0" prefHeight="37.0" prefWidth="174.0" style="-fx-background-color: #eee;">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                                 <effect>
+                                    <DropShadow spread="0.4" />
+                                 </effect>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>
